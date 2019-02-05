@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  department: MyString
+  string: MyString
+  gender: 1
+  birth: 2019-02-05
+  joined_date: 2019-02-05
+  payment: 
+  note: MyText
+
+two:
+  name: MyString
+  department: MyString
+  string: MyString
+  gender: 1
+  birth: 2019-02-05
+  joined_date: 2019-02-05
+  payment: 
+  note: MyText
