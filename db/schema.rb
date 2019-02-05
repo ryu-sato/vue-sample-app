@@ -13,16 +13,16 @@
 ActiveRecord::Schema.define(version: 2019_02_05_185733) do
 
   create_table "employees", force: :cascade do |t|
-    t.string "name"
-    t.string "department"
-    t.string "string"
-    t.integer "gender"
+    t.string "name", default: "", null: false
+    t.string "department", default: "", null: false
+    t.integer "gender", default: 0, null: false
     t.date "birth"
     t.date "joined_date"
-    t.bigint "payment"
-    t.text "note"
+    t.bigint "payment", default: 0, null: false
+    t.text "note", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "lock_version"
   end
 
 end

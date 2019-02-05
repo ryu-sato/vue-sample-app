@@ -1,16 +1,16 @@
 class CreateEmployees < ActiveRecord::Migration[5.2]
   def change
     create_table :employees do |t|
-      t.string :name
-      t.string :department
-      t.string :string
-      t.integer :gender
-      t.date :birth
-      t.date :joined_date
-      t.bigint :payment
-      t.text :note
+      t.string :name, null: false, default: ""
+      t.string :department, null: false, default: ""
+      t.integer :gender, null: false, default: 0
+      t.date :birth, null: true
+      t.date :joined_date, null: true
+      t.bigint :payment, null: false, default: 0
+      t.text :note, null: false, default: ""
 
       t.timestamps
+      t.integer :lock_version
     end
   end
 end
