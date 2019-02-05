@@ -62,3 +62,6 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# Active Admin is a Ruby on Rails framework for creating elegant backends for website administration. refs: https://github.com/activeadmin/activeadmin/
+gem 'activeadmin'
