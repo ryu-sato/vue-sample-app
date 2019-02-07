@@ -4,7 +4,7 @@ root = true
 end_of_line = lf
 charset = utf-8
 
-[*.{yaml,yml,rb,erb}]
+[*.{yaml,yml,rb,erb,vue}]
 indent_style = space
 indent_size = 2
 insert_final_newline = true
