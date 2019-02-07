@@ -1,44 +1,32 @@
 <template>
-  <div id="app">
-    <table>
-      <tbody>
-        <tr>
-          <th>ID</th>
-          <th>name</th>
-          <th>department</th>
-          <th>gender</th>
-        </tr>
-        <tr v-for="e in employees" :key="e.id">
-          <td>{{ e.id }}</td>
-          <td>{{ e.name }}</td>
-          <td>{{ e.department }}</td>
-          <td>{{ e.gender }}</td>
-        </tr>
-      </tbody>
-    </table>
+  <div>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import axios from 'axios';
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+
+import EmployeeIndexPage from 'EmployeeIndexPage.vue'
+import EmployeeDetailPage from 'EmployeeDetailPage.vue'
+
+const router = new VueRouter({
+  routes: [
+    { path: '/',
+      component: EmployeeIndexPage  },
+    { path: '/employees/:id',
+      component: EmployeeDetailPage  }
+  ]
+})
+
+// ref. https://jp.vuejs.org/v2/guide/plugins.html#%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3%E3%81%AE%E4%BD%BF%E7%94%A8
+Vue.use(VueRouter)
 
 export default {
-  data: function () {
-    return {
-      employees: []
-    }
-  },
-  mounted () {
-    axios
-      .get('/api/v1/employees.json')
-      .then(response => (this.employees = response.data))
-  }
+  router
 }
 </script>
 
 <style scoped>
-p {
-  font-size: 2em;
-  text-align: center;
-}
 </style>
