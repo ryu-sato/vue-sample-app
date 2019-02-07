@@ -7,7 +7,7 @@ class Api::V1::EmployeesController < ApiController
   end
 
   def index
-    employees = Employee.all
+    employees = Employee.select(:id, :name, :department, :gender)
     render json: employees
   end
 
