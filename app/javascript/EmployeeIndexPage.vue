@@ -8,7 +8,7 @@
         <th>gender</th>
       </tr>
       <tr v-for="e in employees" :key="e.id">
-        <td>{{ e.id }}</td>
+        <td><router-link :to="{ name: 'EmployeeDetailPage', params: { id: e.id } }">{{ e.id }}</router-link></td>
         <td>{{ e.name }}</td>
         <td>{{ e.department }}</td>
         <td>{{ e.gender }}</td>

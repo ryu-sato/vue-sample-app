@@ -16,6 +16,7 @@ const router = new VueRouter({
     { path: '/',
       component: EmployeeIndexPage  },
     { path: '/employees/:id',
+      name: 'EmployeeDetailPage',
       component: EmployeeDetailPage  }
   ]
 })
