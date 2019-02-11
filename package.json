@@ -1,6 +1,11 @@
 {
   "name": "vue-sample-app",
   "private": true,
+  "engines": {
+    "node": ">= 8.14.0 <9",
+    "npm": ">= 6.4.1 <7",
+    "yarn": ">= 1.12.3 <2"
+  },
   "dependencies": {
     "@rails/webpacker": "3.5",
     "axios": "^0.18.0",
