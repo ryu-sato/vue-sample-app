@@ -20,11 +20,13 @@
           <td>{{ e.department }}</td>
           <td>{{ e.gender }}</td>
           <td>
+            <router-link :to="{ name: 'EmployeeEditPage', params: { id: e.id } }">Edit</router-link>
             <button @click="deleteTarget = e.id; showModal = true">Delete</button>
           </td>
         </tr>
       </tbody>
     </table>
+    <router-link :to="{ name: 'EmployeeNewPage' }">New</router-link>
     <modal v-if="showModal" @cancel="showModal = false" @ok="deleteEmployee(); showModal = false;">
       <div slot="body">Are you sure?</div>
     </modal>

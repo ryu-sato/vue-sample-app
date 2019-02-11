@@ -16,6 +16,7 @@ import EmployeeEditPage from 'EmployeeEditPage.vue'
 const router = new VueRouter({
   routes: [
     { path: '/',
+      name: 'EmployeeIndexPage',
       component: EmployeeIndexPage  },
     { path: '/employees/:id(\\d+)',  // :idは数値のみに制限する
       name: 'EmployeeDetailPage',
