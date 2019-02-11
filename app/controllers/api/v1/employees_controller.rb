@@ -1,8 +1,8 @@
 class Api::V1::EmployeesController < ApiController
-  before_action :set_employee, only: [:show, :update]
+  before_action :set_employee, only: [:show, :update, :destroy]
 
   # 拾えなかったExceptionが発生したら500 Internal server errorを応答する
-  rescue_from Exception, with: :redner_status_500
+  rescue_from Exception, with: :render_status_500
 
   # ActiveRecordのレコードが見つからなければ404 not foundを応答する
   rescue_from ActiveRecord::RecordNotFound, with: :render_status_404
@@ -33,6 +33,11 @@ class Api::V1::EmployeesController < ApiController
     end
   end
 
+  def destroy
+    @employee.destroy!
+    head :no_content
+  end
+
   private
     def set_employee
       @employee = Employee.find(params[:id])
@@ -43,10 +48,10 @@ class Api::V1::EmployeesController < ApiController
     end
 
     def render_status_404(exception)
-      render json: { errors: exception }, status: 404
+      render json: { errors: [exception] }, status: 404
     end
 
     def render_status_500(exception)
-      render json: { errors: exception }, status: 500
+      render json: { errors: [exception] }, status: 500
     end
 end
