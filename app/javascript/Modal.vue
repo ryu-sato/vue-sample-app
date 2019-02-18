@@ -16,10 +16,10 @@
 
           <div class="modal-footer">
             <slot name="footer">
-              <button class="modal-default-button" @click="$emit('ok')">
+              <button class="btn btn-outline-primary modal-default-button" @click="$emit('ok')">
                 OK
               </button>
-              <button class="modal-default-button" @click="$emit('cancel')">
+              <button class="btn btn-outline-secondary modal-default-button" @click="$emit('cancel')">
                 Cancel
               </button>
             </slot>

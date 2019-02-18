@@ -5,8 +5,8 @@
         <li><font color="red">{{ e }}</font></li>
       </ul>
     </div>
-    <table>
-      <tbody>
+    <table class="table table-sm">
+      <thead class="thead-light">
         <tr>
           <th>ID</th>
           <th>name</th>
@@ -14,6 +14,8 @@
           <th>gender</th>
           <th>actions</th>
         </tr>
+      </thead>
+      <tbody>
         <tr v-for="e in employees" :key="e.id">
           <td><router-link :to="{ name: 'EmployeeDetailPage', params: { id: e.id } }">{{ e.id }}</router-link></td>
           <td>{{ e.name }}</td>
@@ -21,7 +23,7 @@
           <td>{{ e.gender }}</td>
           <td>
             <router-link :to="{ name: 'EmployeeEditPage', params: { id: e.id } }">Edit</router-link>
-            <button @click="deleteTarget = e.id; showModal = true">Delete</button>
+            <button class="btn btn-outline-danger" @click="deleteTarget = e.id; showModal = true">Delete</button>
           </td>
         </tr>
       </tbody>
