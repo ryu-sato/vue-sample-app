@@ -130,7 +130,7 @@ ActiveAdmin.setup do |config|
   #
   # You can disable the menu item for the comments index page:
   config.comments_menu = false
-  
+
   # You can customize the comment menu:
   # config.comments_menu = { parent: 'Admin', priority: 1 }
 
@@ -290,4 +290,21 @@ ActiveAdmin.setup do |config|
   # You can inherit it with own class and inject it for all resources
   #
   # config.order_clause = MyOrderClause
+end
+
+
+# monkey-patch
+# see: http://stackoverflow.com/a/12591523
+#      http://www.rubydoc.info/github/gregbell/active_admin/ActiveAdmin/Views/Header
+module ActiveAdmin
+  module Views
+    class Header < Component
+      def build(namespace, menu)
+        # id: header にすると、Active Admin のスタイルが適用されてしまうため、
+        # それ以外の文字列を指定する
+        super(id: 'vue-sample-navbar', class: 'bootstrap')
+        render(partial: 'common/navbar')
+      end
+    end
+  end
 end
